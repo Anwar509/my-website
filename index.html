@@ -1,407 +1,110 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Journey & Hope | Alhamdulillah</title>
+    <title>Rebuilding Life | إعادة بناء الحياة</title>
     <style>
-        :root {
-            --bg-color: #f1f5f9;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --story-bg: #f8fafc;
-            --story-border: #0284c7;
-            --story-text: #334155;
-            --support-bg: #f0fdf4;
-            --support-border: #bbf7d0;
-            --support-title: #166534;
-            --support-desc: #15803d;
-            --thank-bg: #fefce8;
-            --thank-border: #fde047;
-            --thank-title: #854d0e;
-            --card-border: #e2e8f0;
-            --btn-lang-bg: #ffffff;
-            --btn-lang-text: #334155;
-            --btn-lang-border: #cbd5e1;
-        }
-
-        body.dark-mode {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --story-bg: #334155;
-            --story-border: #38bdf8;
-            --story-text: #f1f5f9;
-            --support-bg: #064e3b;
-            --support-border: #059669;
-            --support-title: #6ee7b7;
-            --support-desc: #a7f3d0;
-            --thank-bg: #422006;
-            --thank-border: #ca8a04;
-            --thank-title: #fef08a;
-            --card-border: #334155;
-            --btn-lang-bg: #1e293b;
-            --btn-lang-text: #f1f5f9;
-            --btn-lang-border: #475569;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.8;
-            padding: 20px 10px;
-        }
-
-        .top-nav {
-            max-width: 680px;
-            margin: 0 auto 15px auto;
+            background-color: #f8f9fa;
+            color: #2c3e50;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .lang-switch {
-            display: flex;
-            gap: 6px;
-        }
-
-        .theme-toggle, .lang-btn {
-            background: var(--btn-lang-bg);
-            color: var(--btn-lang-text);
-            border: 1px solid var(--btn-lang-border);
-            padding: 6px 14px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .lang-btn.active {
-            background: #0284c7;
-            color: #ffffff;
-            border-color: #0284c7;
-        }
-
-        .main-card {
-            position: relative;
-            max-width: 680px;
-            margin: 0 auto 40px auto;
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 3rem 2rem 2.5rem 2rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--card-border);
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .corner-flower {
-            position: absolute;
-            font-size: 1.8rem;
-            opacity: 0.85;
-            user-select: none;
-            pointer-events: none;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .top-left { top: 12px; left: 15px; }
-        .top-right { top: 12px; right: 15px; }
-        .bottom-left { bottom: 12px; left: 15px; }
-        .bottom-right { bottom: 12px; right: 15px; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(8deg); }
-        }
-
-        .avatar-icon {
-            width: 90px;
-            height: 90px;
-            background: #e0f2fe;
-            color: #0284c7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            margin: 0 auto 1.5rem auto;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
-
+        .container {
+            background: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
         h1 {
+            color: #1e293b;
             font-size: 1.8rem;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .story-box {
-            background-color: var(--story-bg);
-            border-left: 4px solid var(--story-border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: left;
-            margin-bottom: 2rem;
+        p.subtitle {
+            color: #64748b;
             font-size: 1.05rem;
-            color: var(--story-text);
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
-
-        [dir="rtl"] .story-box {
-            border-left: none;
-            border-right: 4px solid var(--story-border);
+        .quote-box {
+            background-color: #f1f5f9;
+            border-right: 4px solid #10b981;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
             text-align: right;
-        }
-
-        .story-box p {
-            margin-bottom: 1rem;
-        }
-
-        .story-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .support-section {
-            background: var(--support-bg);
-            border: 1px solid var(--support-border);
-            padding: 1.75rem;
-            border-radius: 14px;
-            margin-bottom: 2rem;
-        }
-
-        .support-title {
-            color: var(--support-title);
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .support-desc {
-            color: var(--support-desc);
             font-size: 0.95rem;
-            margin-bottom: 1.25rem;
+            color: #334155;
+            line-height: 1.6;
         }
-
-        .donate-btn {
+        .btn-donate {
             display: inline-block;
-            background-color: #5F7FFF;
+            background-color: #10b981;
             color: #ffffff;
-            font-weight: bold;
             font-size: 1.1rem;
-            padding: 0.85rem 2rem;
-            border-radius: 50px;
+            font-weight: bold;
+            padding: 14px 36px;
+            border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(95, 127, 255, 0.4);
             transition: all 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
         }
-
-        .donate-btn:hover {
-            background-color: #4b6be8;
+        .btn-donate:hover {
+            background-color: #059669;
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(95, 127, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
-
-        .thank-you-box {
-            background-color: var(--thank-bg);
-            border: 1px dashed var(--thank-border);
-            padding: 1.5rem;
-            border-radius: 14px;
-            margin-top: 2rem;
-        }
-
-        .thank-you-title {
-            color: var(--thank-title);
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hamdullah {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #0284c7;
-            margin-top: 0.75rem;
-        }
-
-        footer {
-            margin-top: 2rem;
-            color: var(--text-muted);
+        .footer-note {
+            margin-top: 25px;
             font-size: 0.85rem;
+            color: #94a3b8;
         }
     </style>
 </head>
 <body>
 
-    <div class="top-nav">
-        <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">
-            🌙 <span id="theme-text">Dark Mode</span>
-        </button>
-
-        <div class="lang-switch">
-            <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">English</button>
-            <button class="lang-btn" id="btn-ar" onclick="setLanguage('ar')">العربية</button>
-            <button class="lang-btn" id="btn-fr" onclick="setLanguage('fr')">Français</button>
-        </div>
-    </div>
-
-    <div class="main-card">
-        <div class="corner-flower top-left">🌸</div>
-        <div class="corner-flower top-right">🌺</div>
-        <div class="corner-flower bottom-left">🌻</div>
-        <div class="corner-flower bottom-right">🌼</div>
-
-        <div class="avatar-icon">🌱</div>
+    <div class="container">
+        <!-- شعار المبادرة -->
+        <img src="https://ko-fi.com/img/homescreen_icon.png" alt="Rebuilding Life" class="logo-img">
         
-        <h1 id="page-title">My Journey, My Hope & Looking Ahead ✨</h1>
-        <p class="subtitle" id="page-subtitle">The story of a child who grew up under psychological pressure and seeks a new beginning</p>
+        <h1>Rebuilding Life | إعادة بناء الحياة</h1>
+        <p class="subtitle">مبادرة إنسانية تهدف لتقديم الدعم والأمل ومنح فرصة ثانية لبداية جديدة.</p>
 
-        <div class="story-box">
-            <p id="story-p1">Welcome to my personal page..</p>
-            <p id="story-p2">I am someone who grew up facing severe psychological pressures and difficult life circumstances. These experiences left a deep impact on my life, causing delays in my path and preventing me from entering the job market until now.</p>
-            <p id="story-p3">Despite everything I have been through, I truly believe that struggle does not define the end of my story, but rather serves as a catalyst for a new beginning. Today, I am striving step by step to overcome these psychological and social hurdles and build a better future with honesty and determination.</p>
+        <div class="quote-box">
+            "حتى في أشد أوقاتنا ظلاماً، يمكن لشعاع أمل واحد أن يضيء السماء بأكملها. دعمك اللطيف ليس مجرد مساعدة، بل هو طوق نجاة يخبرنا بأننا لسنا منسيين."
         </div>
 
-        <div class="support-section">
-            <div class="support-title" id="support-title">Would you like to support my new beginning? 🌸</div>
-            <div class="support-desc" id="support-desc">If you would like to offer help or a donation to assist me with basic needs and support my journey toward recovery and rebuilding, I would be deeply grateful.</div>
-            
-            <a href="https://www.buymeacoffee.com/Asmrar" target="_blank" class="donate-btn" id="donate-btn">
-                ☕ Support Directly
-            </a>
-        </div>
+        <!-- زر الدعم المباشر المرتبط بحسابك -->
+        <a href="https://ko-fi.com/rebuilding_life" target="_blank" class="btn-donate">
+            🌱 أهدِنا شعاع أمل (Support Hope)
+        </a>
 
-        <div class="thank-you-box">
-            <div class="thank-you-title" id="thank-title">A Message of Gratitude 🤍</div>
-            <p id="thank-desc">Thank you to every kind soul reading my words right now, whether you provided financial support (even if it is just half a dollar) or simply kept me in your prayers. Your presence and hope mean the world to me.</p>
-            <div class="hamdullah" id="hamdullah">
-                Alhamdulillah for everything, and praise be to God always ✨
-            </div>
+        <div class="footer-note">
+            جميع التبرعات آمنة ومباشرة وتحمي خصوصية كافة الأطراف.
         </div>
-
-        <footer>
-            &copy; All rights reserved | <span id="footer-hamdullah">Alhamdulillah</span> 🌼
-        </footer>
     </div>
 
-    <script>
-        const translations = {
-            en: {
-                dir: 'ltr',
-                lang: 'en',
-                title: 'My Journey, My Hope & Looking Ahead ✨',
-                subtitle: 'The story of a child who grew up under psychological pressure and seeks a new beginning',
-                p1: 'Welcome to my personal page..',
-                p2: 'I am someone who grew up facing severe psychological pressures and difficult life circumstances. These experiences left a deep impact on My life, causing delays in my path and preventing me from entering the job market until now.',
-                p3: 'Despite everything I have been through, I truly believe that struggle does not define the end of my story, but rather serves as a catalyst for a new beginning. Today, I am striving step by step to overcome these psychological and social hurdles and build a better future with honesty and determination.',
-                supportTitle: 'Would you like to support my new beginning? 🌸',
-                supportDesc: 'If you would like to offer help or a donation to assist me with basic needs and support my journey toward recovery and rebuilding, I would be deeply grateful.',
-                donateBtn: '☕ Support Directly',
-                thankTitle: 'A Message of Gratitude 🤍',
-                thankDesc: 'Thank you to every kind soul reading my words right now, whether you provided financial support (even if it is just half a dollar) or simply kept me in your prayers. Your presence and hope mean the world to me.',
-                hamdullah: 'Alhamdulillah for everything, and praise be to God always ✨',
-                footerHamdullah: 'Alhamdulillah',
-                darkBtn: '🌙 Dark Mode',
-                lightBtn: '☀️ Light Mode'
-            },
-            ar: {
-                dir: 'rtl',
-                lang: 'ar',
-                title: 'رحلتي، أملي، وتطلعي للمستقبل ✨',
-                subtitle: 'قصة طفل كبر وسط الضغوط ويبحث عن بدايته الجديدة',
-                p1: 'مرحباً بك في صفحتي الشخصية..',
-                p2: 'أنا إنسان كبرتُ وعشتُ طفولتي وشبابي تحت ضغوط نفسية وظروف لم تكن سهلة أبداً. تلك الظروف تركت أثراً عميقاً في حياتي وجعلتني أتأخر في مساري وفي دخول سوق العمل حتى الآن.',
-                p3: 'رغم كل ما مررت به، أؤمن أن المعاناة لا تحدد نهاية القصة، بل هي دافع لبداية جديدة. أسعى اليوم لتجاوز هذه العقبات النفسية والاجتماعية، وبناء مستقبلي خطوة بخطوة بكل صدق وإرادة.',
-                supportTitle: 'هل ترغب في مساندتي ودعم بدايتي؟ 🌸',
-                supportDesc: 'إن كنت تود تقديم دعم أو تبرع ليساعدني في تغطية الاحتياجات الأساسية ومواصلة رحلة التعافي والبناء، سأكون ممتناً لك من الأعماق.',
-                donateBtn: '☕ تقديم دعم مباشر',
-                thankTitle: 'رسالة شكر وامتنان 🤍',
-                thankDesc: 'شكراً لكل روح طيبة تقرأ كلماتي الآن، سواء قدمت لي دعماً مادياً (حتى ولو بدرهم واحد) أو دعت لي بدعوة صادقة بظهر الغيب. وجودكم وأملكم بي يعني لي الكثير.',
-                hamdullah: 'الحمد لله على كل حال، والحمد لله دائماً وأبداً ✨',
-                footerHamdullah: 'الحمد لله',
-                darkBtn: '🌙 الوضع الليلي',
-                lightBtn: '☀️ الوضع المضيء'
-            },
-            fr: {
-                dir: 'ltr',
-                lang: 'fr',
-                title: 'Mon Parcours, Mon Espoir et Mon Avenir ✨',
-                subtitle: 'L\'histoire d\'un enfant qui a grandi sous pression psychologique et cherche un nouveau départ',
-                p1: 'Bienvenue sur ma page personnelle..',
-                p2: 'J\'ai grandi en faisant face à de fortes pressions psychologiques et à des circonstances difficiles. Ces expériences ont laissé une empreinte profonde, retardant mon parcours et m\'empêchant d\'entrer sur le marché du travail jusqu\'à présent.',
-                p3: 'Malgré tout ce que j\'ai traversé, je crois profondément que la souffrance ne définit pas la fin de mon histoire, mais sert de catalyseur pour un nouveau départ. Aujourd\'hui, je m\'efforce de surmonter ces obstacles et de construire mon avenir avec honnêteté et détermination.',
-                supportTitle: 'Souhaitez-vous soutenir mon nouveau départ ? 🌸',
-                supportDesc: 'Si vous souhaitez m\'offrir une aide ou un don pour subvenir à mes besoins essentiels et soutenir ma guérison, je vous en serais profondément reconnaissant.',
-                donateBtn: '☕ Soutenir Directement',
-                thankTitle: 'Message de Gratitude 🤍',
-                thankDesc: 'Merci à chaque belle âme qui lit mes mots en ce moment, que vous m\'ayez offert un soutien financier (même si ce n\'est que demi-euro) ou simplement une pensée sincère dans vos prières. Votre soutien compte énormément pour moi.',
-                hamdullah: 'Alhamdulillah pour tout, et louange à Dieu toujours ✨',
-                footerHamdullah: 'Alhamdulillah',
-                darkBtn: '🌙 Mode Sombre',
-                lightBtn: '☀️ Mode Clair'
-            }
-        };
-
-        let currentLang = 'en';
-
-        function setLanguage(langKey) {
-            currentLang = langKey;
-            const data = translations[langKey];
-            
-            document.documentElement.dir = data.dir;
-            document.documentElement.lang = data.lang;
-
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`btn-${langKey}`).classList.add('active');
-
-            document.getElementById('page-title').innerText = data.title;
-            document.getElementById('page-subtitle').innerText = data.subtitle;
-            document.getElementById('story-p1').innerText = data.p1;
-            document.getElementById('story-p2').innerText = data.p2;
-            document.getElementById('story-p3').innerText = data.p3;
-            document.getElementById('support-title').innerText = data.supportTitle;
-            document.getElementById('support-desc').innerText = data.supportDesc;
-            document.getElementById('donate-btn').innerText = data.donateBtn;
-            document.getElementById('thank-title').innerText = data.thankTitle;
-            document.getElementById('thank-desc').innerText = data.thankDesc;
-            document.getElementById('hamdullah').innerText = data.hamdullah;
-            document.getElementById('footer-hamdullah').innerText = data.footerHamdullah;
-
-            updateThemeButtonText();
-        }
-
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            updateThemeButtonText();
-        }
-
-        function updateThemeButtonText() {
-            const isDark = document.body.classList.contains('dark-mode');
-            const data = translations[currentLang];
-            document.getElementById('theme-text').innerText = isDark ? data.lightBtn : data.darkBtn;
-        }
-    </script>
-
-    <!-- كود النافذة المنبثقة المباشرة للتبرع الخاص بك -->
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="Asmrar" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </body>
 </html>
