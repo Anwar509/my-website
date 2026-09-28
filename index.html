@@ -36,16 +36,21 @@
         [dir="ltr"] .problem { border-right: none; border-left: 4px solid #ef4444; }
         
         /* Locked Solution Box */
-        .solution-locked { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .solution-locked { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; min-height: 180px; }
         .solution-locked .blur-text { filter: blur(4px); opacity: 0.4; user-select: none; margin-bottom: 1rem; pointer-events: none; }
-        .paywall-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
+        .paywall-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.88); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
         .pay-badge { background: #f59e0b; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem; }
         .unlock-btn { background: #16a34a; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-top: 0.5rem; text-decoration: none; display: inline-block; }
         .unlock-btn:hover { background: #15803d; }
 
         .cta-section { background: #0f172a; color: white; text-align: center; padding: 3rem 1.5rem; border-radius: 12px; margin-top: 3rem; }
         .cta-button { display: inline-block; background: #2563eb; color: white; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; font-weight: bold; }
-        footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem; }
+        
+        /* Contact Footer */
+        footer { text-align: center; padding: 2.5rem 1rem; background: #0b1329; color: #94a3b8; font-size: 0.9rem; margin-top: 3rem; border-top: 1px solid #1e293b; }
+        footer a { color: #38bdf8; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
+        .contact-info { margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
     </style>
 </head>
 <body>
@@ -71,7 +76,7 @@
         <div class="case-study">
             <div class="case-header">
                 <h3 class="case1-title">أزمة سلسلة التوريد وارتفاع التكاليف التشغيلية</h3>
-                <span class="tag">الشركات الكبرى / اللوجستيات</span>
+                <span class="tag case1-tag">الشركات الكبرى / اللوجستيات</span>
             </div>
             <p class="case1-desc">دراسة حالة حول كيفية تعامل شركة تصنيع إقليمية مع تضخم أسعار الشحن وتأخر توريد المواد الخام.</p>
             <div class="problem-solution">
@@ -80,13 +85,13 @@
                     <p class="case1-prob">تراكم الطلبات المتأخرة بنسبة 35%، انخفاض هامش الربح بسبب الشراء المباشر المفاجئ، وغياب التنبؤ التلقائي بالمخزون.</p>
                 </div>
                 <div class="solution-locked">
-                    <div class="blur-text">
+                    <div class="blur-text case1-blur">
                         هذا النص يحتوي على الحل الاستراتيجي التفصيلي والخطة التنفيذية المكونة من 5 مراحل لإعادة هيكلة خطوط التوريد وخفض التكاليف بنسبة 22%.
                     </div>
                     <div class="paywall-overlay">
-                        <span class="pay-badge" id="badge-pro">محتوى مدفوع (PRO)</span>
-                        <h4 style="font-size:0.95rem;" id="lock-title">فتح تقرير الحل الاستراتيجي الكامل</h4>
-                        <a href="https://wa.me/" target="_blank" class="unlock-btn" id="unlock-btn">فتح التقرير ($49)</a>
+                        <span class="pay-badge badge-pro">محتوى مدفوع (PRO)</span>
+                        <h4 style="font-size:0.95rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل</h4>
+                        <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20the%20Supply%20Chain%20Case%20Study" target="_blank" class="unlock-btn">فتح التقرير ($49)</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +101,7 @@
         <div class="case-study">
             <div class="case-header">
                 <h3 class="case2-title">ضعف معدل الاحتفاظ بالعملاء (Churn Rate)</h3>
-                <span class="tag">البرمجيات والتكنولوجيا</span>
+                <span class="tag case2-tag">البرمجيات والتكنولوجيا</span>
             </div>
             <p class="case2-desc">تحليل أسباب إلغاء الاشتراكات الشهرية في منصة إدارة مشاريع بعد السنة الأولى من الإطلاق.</p>
             <div class="problem-solution">
@@ -105,13 +110,13 @@
                     <p class="case2-prob">ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.</p>
                 </div>
                 <div class="solution-locked">
-                    <div class="blur-text">
+                    <div class="blur-text case2-blur">
                         خطة العمل لإعادة تصميم رحلة العميل وإضافة آليات الذكاء الاصطناعي للمتابعة التي رفعت الاحتفاظ بالعملاء بنسبة 40%.
                     </div>
                     <div class="paywall-overlay">
-                        <span class="pay-badge" id="badge-pro2">محتوى مدفوع (PRO)</span>
-                        <h4 style="font-size:0.95rem;" id="lock-title2">فتح تقرير الحل الاستراتيجي الكامل</h4>
-                        <a href="https://wa.me/" target="_blank" class="unlock-btn" id="unlock-btn2">فتح التقرير ($49)</a>
+                        <span class="pay-badge badge-pro">محتوى مدفوع (PRO)</span>
+                        <h4 style="font-size:0.95rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل</h4>
+                        <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20the%20Churn%20Rate%20Case%20Study" target="_blank" class="unlock-btn">فتح التقرير ($49)</a>
                     </div>
                 </div>
             </div>
@@ -121,11 +126,15 @@
         <div class="cta-section">
             <h2 id="cta-title">هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟</h2>
             <p id="cta-desc">احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.</p>
-            <a href="https://wa.me/" target="_blank" class="cta-button" id="cta-btn">طلب استشارة مخصصة</a>
+            <a href="https://wa.me/212693234348?text=Hello,%20I%20need%20a%20custom%20business%20consultation" target="_blank" class="cta-button" id="cta-btn">طلب استشارة مخصصة</a>
         </div>
     </div>
 
     <footer>
+        <div class="contact-info">
+            <span>📧 Email: <a href="mailto:benlafkir5@gmail.com">benlafkir5@gmail.com</a></span>
+            <span>📱 WhatsApp: <a href="https://wa.me/212693234348" target="_blank">+212 693-234348</a></span>
+        </div>
         <p>&copy; 2026 BizAnalytics PRO. All rights reserved.</p>
     </footer>
 
@@ -139,15 +148,20 @@
                 probTitle: 'المشكلة التشخيصية:',
                 lockTitle: 'فتح تقرير الحل الاستراتيجي الكامل',
                 unlockBtn: 'فتح التقرير ($49)',
+                badgePro: 'محتوى مدفوع (PRO)',
                 ctaTitle: 'هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟',
                 ctaDesc: 'احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.',
                 ctaBtn: 'طلب استشارة مخصصة',
                 case1Title: 'أزمة سلسلة التوريد وارتفاع التكاليف التشغيلية',
+                case1Tag: 'الشركات الكبرى / اللوجستيات',
                 case1Desc: 'دراسة حالة حول كيفية تعامل شركة تصنيع إقليمية مع تضخم أسعار الشحن وتأخر توريد المواد الخام.',
                 case1Prob: 'تراكم الطلبات المتأخرة بنسبة 35%، انخفاض هامش الربح بسبب الشراء المباشر المفاجئ، وغياب التنبؤ التلقائي بالمخزون.',
+                case1Blur: 'هذا النص يحتوي على الحل الاستراتيجي التفصيلي والخطة التنفيذية المكونة من 5 مراحل لإعادة هيكلة خطوط التوريد وخفض التكاليف بنسبة 22%.',
                 case2Title: 'ضعف معدل الاحتفاظ بالعملاء (Churn Rate)',
+                case2Tag: 'البرمجيات والتكنولوجيا',
                 case2Desc: 'تحليل أسباب إلغاء الاشتراكات الشهرية في منصة إدارة مشاريع بعد السنة الأولى من الإطلاق.',
-                case2Prob: 'ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.'
+                case2Prob: 'ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.',
+                case2Blur: 'خطة العمل لإعادة تصميم رحلة العميل وإضافة آليات الذكاء الاصطناعي للمتابعة التي رفعت الاحتفاظ بالعملاء بنسبة 40%.'
             },
             fr: {
                 dir: 'ltr',
@@ -157,15 +171,20 @@
                 probTitle: 'Problème Diagnostic:',
                 lockTitle: 'Débloquer le rapport de solution stratégique',
                 unlockBtn: 'Débloquer le rapport (49$)',
+                badgePro: 'Contenu Payant (PRO)',
                 ctaTitle: 'Besoin d\'une analyse personnalisée pour votre entreprise ?',
                 ctaDesc: 'Obtenez des conseils personnalisés et des rapports stratégiques sur mesure.',
                 ctaBtn: 'Demander une consultation',
                 case1Title: 'Crise de la chaîne d\'approvisionnement et coûts élevés',
+                case1Tag: 'Grandes Entreprises / Logistique',
                 case1Desc: 'Étude de cas sur la gestion de l\'inflation des frais de port et des retards de matières premières.',
                 case1Prob: 'Accumulation de 35% de commandes en retard et baisse des marges bénéficiaires.',
+                case1Blur: 'Ce texte contient la solution stratégique détaillée et le plan d\'exécution en 5 étapes pour restructurer les lignes d\'approvisionnement et réduire les coûts de 22%.',
                 case2Title: 'Faible taux de rétention des clients (Churn Rate)',
+                case2Tag: 'Logiciels & Technologie',
                 case2Desc: 'Analyse des annulations d\'abonnements mensuels sur une plateforme SaaS.',
-                case2Prob: 'Expérience d\'intégration (Onboarding) médiocre et manque de support client immédiat.'
+                case2Prob: 'Expérience d\'intégration (Onboarding) médiocre et manque de support client immédiat.',
+                case2Blur: 'Le plan d\'action pour redéfinir le parcours client et intégrer le suivi par IA, augmentant la rétention de 40%.'
             },
             en: {
                 dir: 'ltr',
@@ -175,21 +194,28 @@
                 probTitle: 'Diagnostic Problem:',
                 lockTitle: 'Unlock Full Strategic Solution Report',
                 unlockBtn: 'Unlock Report ($49)',
+                badgePro: 'Paid Content (PRO)',
                 ctaTitle: 'Need a custom analysis for your business?',
                 ctaDesc: 'Get tailored consulting and strategic reports designed to scale your operations.',
                 ctaBtn: 'Request Custom Consultation',
                 case1Title: 'Supply Chain Crisis & Rising Operational Costs',
+                case1Tag: 'Enterprise / Logistics',
                 case1Desc: 'A case study on how a manufacturing firm navigated shipping inflation and raw material delays.',
                 case1Prob: '35% order backlog, shrinking profit margins due to spot purchases, and lack of inventory forecasting.',
+                case1Blur: 'This text contains the detailed strategic solution and a 5-phase execution plan to restructure supply lines and reduce costs by 22%.',
                 case2Title: 'High Customer Churn Rate in SaaS',
+                case2Tag: 'Software & Tech',
                 case2Desc: 'Analyzing reasons behind monthly subscription cancellations after year one.',
-                case2Prob: 'Poor onboarding experience and lack of instant technical support for enterprise clients.'
+                case2Prob: 'Poor onboarding experience and lack of instant technical support for enterprise clients.',
+                case2Blur: 'The action plan to redesign the customer journey and integrate AI follow-ups that boosted retention by 40%.'
             }
         };
 
         function setLanguage(lang) {
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if(event && event.target) {
+                event.target.classList.add('active');
+            }
             
             const t = translations[lang];
             document.documentElement.dir = t.dir;
@@ -203,16 +229,21 @@
             document.getElementById('cta-btn').innerText = t.ctaBtn;
 
             document.querySelectorAll('.prob-title').forEach(el => el.innerText = t.probTitle);
-            document.querySelectorAll('[id^="lock-title"]').forEach(el => el.innerText = t.lockTitle);
-            document.querySelectorAll('[id^="unlock-btn"]').forEach(el => el.innerText = t.unlockBtn);
+            document.querySelectorAll('.lock-title').forEach(el => el.innerText = t.lockTitle);
+            document.querySelectorAll('.unlock-btn').forEach(el => el.innerText = t.unlockBtn);
+            document.querySelectorAll('.badge-pro').forEach(el => el.innerText = t.badgePro);
 
             document.querySelector('.case1-title').innerText = t.case1Title;
+            document.querySelector('.case1-tag').innerText = t.case1Tag;
             document.querySelector('.case1-desc').innerText = t.case1Desc;
             document.querySelector('.case1-prob').innerText = t.case1Prob;
+            document.querySelector('.case1-blur').innerText = t.case1Blur;
 
             document.querySelector('.case2-title').innerText = t.case2Title;
+            document.querySelector('.case2-tag').innerText = t.case2Tag;
             document.querySelector('.case2-desc').innerText = t.case2Desc;
             document.querySelector('.case2-prob').innerText = t.case2Prob;
+            document.querySelector('.case2-blur').innerText = t.case2Blur;
         }
     </script>
 </body>
