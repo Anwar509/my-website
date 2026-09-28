@@ -36,12 +36,17 @@
         [dir="ltr"] .problem { border-right: none; border-left: 4px solid #ef4444; }
         
         /* Locked Solution Box */
-        .solution-locked { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; min-height: 180px; }
+        .solution-locked { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; min-height: 220px; }
         .solution-locked .blur-text { filter: blur(4px); opacity: 0.4; user-select: none; margin-bottom: 1rem; pointer-events: none; }
-        .paywall-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.88); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
-        .pay-badge { background: #f59e0b; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem; }
-        .unlock-btn { background: #16a34a; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-top: 0.5rem; text-decoration: none; display: inline-block; }
-        .unlock-btn:hover { background: #15803d; }
+        .paywall-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.92); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
+        .pay-badge { background: #f59e0b; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.4rem; }
+        
+        .pay-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; justify-content: center; }
+        .paypal-btn { background: #0070ba; color: white; border: none; padding: 0.55rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+        .paypal-btn:hover { background: #005ea6; }
+        .wa-btn { background: #16a34a; color: white; border: none; padding: 0.55rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+        .wa-btn:hover { background: #15803d; }
+        .paypal-note { font-size: 0.75rem; color: #64748b; margin-top: 0.4rem; }
 
         .cta-section { background: #0f172a; color: white; text-align: center; padding: 3rem 1.5rem; border-radius: 12px; margin-top: 3rem; }
         .cta-button { display: inline-block; background: #2563eb; color: white; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; font-weight: bold; }
@@ -90,8 +95,13 @@
                     </div>
                     <div class="paywall-overlay">
                         <span class="pay-badge badge-pro">محتوى مدفوع (PRO)</span>
-                        <h4 style="font-size:0.95rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل</h4>
-                        <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20the%20Supply%20Chain%20Case%20Study" target="_blank" class="unlock-btn">فتح التقرير ($49)</a>
+                        <h4 style="font-size:0.92rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل ($49)</h4>
+                        
+                        <div class="pay-actions">
+                            <a href="https://www.paypal.com/paypalme/benlafkir5/49USD" target="_blank" class="paypal-btn paypal-text">💳 دفع عبر PayPal</a>
+                            <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20Supply%20Chain%20Report%20via%20PayPal/WhatsApp" target="_blank" class="wa-btn wa-text">💬 تواصل بواتساب</a>
+                        </div>
+                        <p class="paypal-note paypal-email-text">حساب بايبال: benlafkir5@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -115,8 +125,13 @@
                     </div>
                     <div class="paywall-overlay">
                         <span class="pay-badge badge-pro">محتوى مدفوع (PRO)</span>
-                        <h4 style="font-size:0.95rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل</h4>
-                        <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20the%20Churn%20Rate%20Case%20Study" target="_blank" class="unlock-btn">فتح التقرير ($49)</a>
+                        <h4 style="font-size:0.92rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل ($49)</h4>
+                        
+                        <div class="pay-actions">
+                            <a href="https://www.paypal.com/paypalme/benlafkir5/49USD" target="_blank" class="paypal-btn paypal-text">💳 دفع عبر PayPal</a>
+                            <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20Churn%20Rate%20Report%20via%20PayPal/WhatsApp" target="_blank" class="wa-btn wa-text">💬 تواصل بواتساب</a>
+                        </div>
+                        <p class="paypal-note paypal-email-text">حساب بايبال: benlafkir5@gmail.com</p>
                     </div>
                 </div>
             </div>
@@ -132,7 +147,7 @@
 
     <footer>
         <div class="contact-info">
-            <span>📧 Email: <a href="mailto:benlafkir5@gmail.com">benlafkir5@gmail.com</a></span>
+            <span>📧 Email / PayPal: <a href="mailto:benlafkir5@gmail.com">benlafkir5@gmail.com</a></span>
             <span>📱 WhatsApp: <a href="https://wa.me/212693234348" target="_blank">+212 693-234348</a></span>
         </div>
         <p>&copy; 2026 BizAnalytics PRO. All rights reserved.</p>
@@ -146,8 +161,10 @@
                 subtitle: 'نحلل التحديات التشغيلية والتسويقية للشركات الكبرى والناشئة ونقدم استراتيجيات نمو مثبتة.',
                 casesTitle: 'حالات دراسية وتقارير وتحليلات',
                 probTitle: 'المشكلة التشخيصية:',
-                lockTitle: 'فتح تقرير الحل الاستراتيجي الكامل',
-                unlockBtn: 'فتح التقرير ($49)',
+                lockTitle: 'فتح تقرير الحل الاستراتيجي الكامل ($49)',
+                paypalText: '💳 دفع عبر PayPal',
+                waText: '💬 تواصل بواتساب',
+                paypalEmailText: 'حساب بايبال: benlafkir5@gmail.com',
                 badgePro: 'محتوى مدفوع (PRO)',
                 ctaTitle: 'هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟',
                 ctaDesc: 'احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.',
@@ -169,8 +186,10 @@
                 subtitle: 'Nous analysons les défis opérationnels et marketing des entreprises et proposons des stratégies de croissance éprouvées.',
                 casesTitle: 'Études de cas et analyses stratégiques',
                 probTitle: 'Problème Diagnostic:',
-                lockTitle: 'Débloquer le rapport de solution stratégique',
-                unlockBtn: 'Débloquer le rapport (49$)',
+                lockTitle: 'Débloquer le rapport stratégique (49$)',
+                paypalText: '💳 Payer via PayPal',
+                waText: '💬 Contact WhatsApp',
+                paypalEmailText: 'Compte PayPal: benlafkir5@gmail.com',
                 badgePro: 'Contenu Payant (PRO)',
                 ctaTitle: 'Besoin d\'une analyse personnalisée pour votre entreprise ?',
                 ctaDesc: 'Obtenez des conseils personnalisés et des rapports stratégiques sur mesure.',
@@ -192,8 +211,10 @@
                 subtitle: 'We analyze operational and marketing challenges for enterprises and deliver proven growth strategies.',
                 casesTitle: 'Case Studies & Strategic Reports',
                 probTitle: 'Diagnostic Problem:',
-                lockTitle: 'Unlock Full Strategic Solution Report',
-                unlockBtn: 'Unlock Report ($49)',
+                lockTitle: 'Unlock Full Strategic Solution Report ($49)',
+                paypalText: '💳 Pay via PayPal',
+                waText: '💬 Chat on WhatsApp',
+                paypalEmailText: 'PayPal Account: benlafkir5@gmail.com',
                 badgePro: 'Paid Content (PRO)',
                 ctaTitle: 'Need a custom analysis for your business?',
                 ctaDesc: 'Get tailored consulting and strategic reports designed to scale your operations.',
@@ -230,7 +251,9 @@
 
             document.querySelectorAll('.prob-title').forEach(el => el.innerText = t.probTitle);
             document.querySelectorAll('.lock-title').forEach(el => el.innerText = t.lockTitle);
-            document.querySelectorAll('.unlock-btn').forEach(el => el.innerText = t.unlockBtn);
+            document.querySelectorAll('.paypal-text').forEach(el => el.innerText = t.paypalText);
+            document.querySelectorAll('.wa-text').forEach(el => el.innerText = t.waText);
+            document.querySelectorAll('.paypal-email-text').forEach(el => el.innerText = t.paypalEmailText);
             document.querySelectorAll('.badge-pro').forEach(el => el.innerText = t.badgePro);
 
             document.querySelector('.case1-title').innerText = t.case1Title;
