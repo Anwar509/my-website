@@ -1,272 +1,301 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizAnalytics - مركز تحليل وتطوير الأعمال</title>
+    <title>My Journey & Hope | Alhamdulillah</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: all 0.2s ease; }
-        body { background-color: #f8fafc; color: #0f172a; line-height: 1.6; }
-        
-        /* Navbar & Language Switcher */
-        nav { background: #0f172a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; border-bottom: 1px solid #1e293b; }
-        .logo { font-weight: bold; font-size: 1.2rem; color: #38bdf8; }
-        .lang-switch { display: flex; gap: 0.5rem; }
-        .lang-btn { background: #1e293b; color: white; border: 1px solid #334155; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: bold; }
-        .lang-btn.active { background: #2563eb; border-color: #2563eb; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.2s ease;
+        }
 
-        header { background-color: #1e293b; color: #ffffff; padding: 3.5rem 1rem; text-align: center; }
-        header h1 { font-size: 2.3rem; margin-bottom: 0.8rem; }
-        header p { color: #94a3b8; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
-        
-        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .section-title { font-size: 1.6rem; color: #1e293b; border-right: 4px solid #2563eb; padding-right: 0.75rem; margin-bottom: 1.5rem; }
-        [dir="ltr"] .section-title { border-right: none; border-left: 4px solid #2563eb; padding-left: 0.75rem; padding-right: 0; }
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.8;
+            padding: 20px 10px;
+        }
 
-        .case-study { background: #ffffff; border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .case-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
-        .case-study h3 { color: #0f172a; font-size: 1.3rem; }
-        .tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
-        
-        .problem-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; }
-        @media (max-width: 768px) { .problem-solution { grid-template-columns: 1fr; } }
-        
-        .box { padding: 1.25rem; border-radius: 8px; position: relative; }
-        .problem { background-color: #fef2f2; border-right: 4px solid #ef4444; }
-        [dir="ltr"] .problem { border-right: none; border-left: 4px solid #ef4444; }
-        
-        /* Locked Solution Box */
-        .solution-locked { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; min-height: 220px; }
-        .solution-locked .blur-text { filter: blur(4px); opacity: 0.4; user-select: none; margin-bottom: 1rem; pointer-events: none; }
-        .paywall-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.92); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
-        .pay-badge { background: #f59e0b; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.4rem; }
-        
-        .pay-actions { display: flex; gap: 0.5rem; margin-top: 0.6rem; flex-wrap: wrap; justify-content: center; }
-        .paypal-btn { background: #0070ba; color: white; border: none; padding: 0.55rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
-        .paypal-btn:hover { background: #005ea6; }
-        .wa-btn { background: #16a34a; color: white; border: none; padding: 0.55rem 1rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
-        .wa-btn:hover { background: #15803d; }
-        .paypal-note { font-size: 0.75rem; color: #64748b; margin-top: 0.4rem; }
+        /* Language Switcher Navbar */
+        nav {
+            max-width: 680px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
 
-        .cta-section { background: #0f172a; color: white; text-align: center; padding: 3rem 1.5rem; border-radius: 12px; margin-top: 3rem; }
-        .cta-button { display: inline-block; background: #2563eb; color: white; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; font-weight: bold; }
-        
-        /* Contact Footer */
-        footer { text-align: center; padding: 2.5rem 1rem; background: #0b1329; color: #94a3b8; font-size: 0.9rem; margin-top: 3rem; border-top: 1px solid #1e293b; }
-        footer a { color: #38bdf8; text-decoration: none; font-weight: bold; }
-        footer a:hover { text-decoration: underline; }
-        .contact-info { margin-bottom: 1rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .lang-btn {
+            background: #ffffff;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .lang-btn.active {
+            background: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+        }
+
+        .main-card {
+            max-width: 680px;
+            margin: 0 auto 40px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .avatar-icon {
+            width: 90px;
+            height: 90px;
+            background: #e0f2fe;
+            color: #0284c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .story-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #0284c7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: left;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            color: #334155;
+        }
+
+        [dir="rtl"] .story-box {
+            border-left: none;
+            border-right: 4px solid #0284c7;
+            text-align: right;
+        }
+
+        .story-box p {
+            margin-bottom: 1rem;
+        }
+
+        .story-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .support-section {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 1.75rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .support-title {
+            color: #166534;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .support-desc {
+            color: #15803d;
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            background-color: #0070ba;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 112, 186, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .donate-btn:hover {
+            background-color: #005ea6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 112, 186, 0.35);
+        }
+
+        .thank-you-box {
+            background-color: #fefce8;
+            border: 1px dashed #fde047;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .thank-you-title {
+            color: #854d0e;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hamdullah {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #0284c7;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            margin-top: 2rem;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Language Selector Nav -->
     <nav>
-        <div class="logo">BizAnalytics PRO</div>
-        <div class="lang-switch">
-            <button class="lang-btn active" onclick="setLanguage('ar')">العربية</button>
-            <button class="lang-btn" onclick="setLanguage('fr')">Français</button>
-            <button class="lang-btn" onclick="setLanguage('en')">English</button>
-        </div>
+        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" id="btn-ar" onclick="setLanguage('ar')">العربية</button>
+        <button class="lang-btn" id="btn-fr" onclick="setLanguage('fr')">Français</button>
     </nav>
 
-    <header>
-        <h1 id="title">مركز تحليل وتطوير الأعمال</h1>
-        <p id="subtitle">نحلل التحديات التشغيلية والتسويقية للشركات الكبرى والناشئة ونقدم استراتيجيات نمو مثبتة.</p>
-    </header>
+    <div class="main-card">
+        <div class="avatar-icon">🌱</div>
+        
+        <h1 id="page-title">My Journey, My Hope & Looking Ahead</h1>
+        <p class="subtitle" id="page-subtitle">The story of a child who grew up under psychological pressure and seeks a new beginning</p>
 
-    <div class="container">
-        <h2 class="section-title" id="cases-title">حالات دراسية وتقارير وتحليلات</h2>
+        <div class="story-box">
+            <p id="story-p1">Welcome to my personal page..</p>
+            <p id="story-p2">I am someone who grew up facing severe psychological pressures and difficult life circumstances. These experiences left a deep impact on my life, causing delays in my path and preventing me from entering the job market until now.</p>
+            <p id="story-p3">Despite everything I have been through, I truly believe that struggle does not define the end of my story, but rather serves as a catalyst for a new beginning. Today, I am striving step by step to overcome these psychological and social hurdles and build a better future with honesty and determination.</p>
+        </div>
 
-        <!-- Article / Case 1 -->
-        <div class="case-study">
-            <div class="case-header">
-                <h3 class="case1-title">أزمة سلسلة التوريد وارتفاع التكاليف التشغيلية</h3>
-                <span class="tag case1-tag">الشركات الكبرى / اللوجستيات</span>
-            </div>
-            <p class="case1-desc">دراسة حالة حول كيفية تعامل شركة تصنيع إقليمية مع تضخم أسعار الشحن وتأخر توريد المواد الخام.</p>
-            <div class="problem-solution">
-                <div class="box problem">
-                    <h4 class="prob-title">المشكلة التشخيصية:</h4>
-                    <p class="case1-prob">تراكم الطلبات المتأخرة بنسبة 35%، انخفاض هامش الربح بسبب الشراء المباشر المفاجئ، وغياب التنبؤ التلقائي بالمخزون.</p>
-                </div>
-                <div class="solution-locked">
-                    <div class="blur-text case1-blur">
-                        هذا النص يحتوي على الحل الاستراتيجي التفصيلي والخطة التنفيذية المكونة من 5 مراحل لإعادة هيكلة خطوط التوريد وخفض التكاليف بنسبة 22%.
-                    </div>
-                    <div class="paywall-overlay">
-                        <span class="pay-badge badge-pro">محتوى مدفوع (PRO)</span>
-                        <h4 style="font-size:0.92rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل ($49)</h4>
-                        
-                        <div class="pay-actions">
-                            <a href="https://www.paypal.me/anwarbenlafkir601/49USD" target="_blank" class="paypal-btn paypal-text">💳 دفع عبر PayPal</a>
-                            <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20Supply%20Chain%20Report%20via%20PayPal/WhatsApp" target="_blank" class="wa-btn wa-text">💬 تواصل بواتساب</a>
-                        </div>
-                        <p class="paypal-note paypal-email-text">حساب بايبال: benlafkir5@gmail.com</p>
-                    </div>
-                </div>
+        <div class="support-section">
+            <div class="support-title" id="support-title">Would you like to support my new beginning?</div>
+            <div class="support-desc" id="support-desc">If you would like to offer help or a donation to assist me with basic needs and support my journey toward recovery and rebuilding, I would be deeply grateful.</div>
+            
+            <!-- Direct Paypal Donation Button -->
+            <a href="https://www.paypal.me/anwarbenlafkir601" target="_blank" class="donate-btn" id="donate-btn">
+                💳 Support via PayPal
+            </a>
+        </div>
+
+        <div class="thank-you-box">
+            <div class="thank-you-title" id="thank-title">A Message of Gratitude 🤍</div>
+            <p id="thank-desc">Thank you to every kind soul reading my words right now, whether you provided financial support or simply kept me in your prayers. Your presence and hope mean the world to me.</p>
+            <div class="hamdullah" id="hamdullah">
+                Alhamdulillah for everything, and praise be to God always ✨
             </div>
         </div>
 
-        <!-- Article / Case 2 -->
-        <div class="case-study">
-            <div class="case-header">
-                <h3 class="case2-title">ضعف معدل الاحتفاظ بالعملاء (Churn Rate)</h3>
-                <span class="tag case2-tag">البرمجيات والتكنولوجيا</span>
-            </div>
-            <p class="case2-desc">تحليل أسباب إلغاء الاشتراكات الشهرية في منصة إدارة مشاريع بعد السنة الأولى من الإطلاق.</p>
-            <div class="problem-solution">
-                <div class="box problem">
-                    <h4 class="prob-title">المشكلة التشخيصية:</h4>
-                    <p class="case2-prob">ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.</p>
-                </div>
-                <div class="solution-locked">
-                    <div class="blur-text case2-blur">
-                        خطة العمل لإعادة تصميم رحلة العميل وإضافة آليات الذكاء الاصطناعي للمتابعة التي رفعت الاحتفاظ بالعملاء بنسبة 40%.
-                    </div>
-                    <div class="paywall-overlay">
-                        <span class="pay-badge badge-pro">محتوى مدفوع (PRO)</span>
-                        <h4 style="font-size:0.92rem;" class="lock-title">فتح تقرير الحل الاستراتيجي الكامل ($49)</h4>
-                        
-                        <div class="pay-actions">
-                            <a href="https://www.paypal.me/anwarbenlafkir601/49USD" target="_blank" class="paypal-btn paypal-text">💳 دفع عبر PayPal</a>
-                            <a href="https://wa.me/212693234348?text=Hello,%20I%20want%20to%20unlock%20Churn%20Rate%20Report%20via%20PayPal/WhatsApp" target="_blank" class="wa-btn wa-text">💬 تواصل بواتساب</a>
-                        </div>
-                        <p class="paypal-note paypal-email-text">حساب بايبال: benlafkir5@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="cta-section">
-            <h2 id="cta-title">هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟</h2>
-            <p id="cta-desc">احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.</p>
-            <a href="https://wa.me/212693234348?text=Hello,%20I%20need%20a%20custom%20business%20consultation" target="_blank" class="cta-button" id="cta-btn">طلب استشارة مخصصة</a>
-        </div>
+        <footer>
+            &copy; All rights reserved | <span id="footer-hamdullah">Alhamdulillah</span>
+        </footer>
     </div>
-
-    <footer>
-        <div class="contact-info">
-            <span>📧 Email / PayPal: <a href="mailto:benlafkir5@gmail.com">benlafkir5@gmail.com</a></span>
-            <span>📱 WhatsApp: <a href="https://wa.me/212693234348" target="_blank">+212 693-234348</a></span>
-        </div>
-        <p>&copy; 2026 BizAnalytics PRO. All rights reserved.</p>
-    </footer>
 
     <script>
         const translations = {
+            en: {
+                dir: 'ltr',
+                lang: 'en',
+                title: 'My Journey, My Hope & Looking Ahead',
+                subtitle: 'The story of a child who grew up under psychological pressure and seeks a new beginning',
+                p1: 'Welcome to my personal page..',
+                p2: 'I am someone who grew up facing severe psychological pressures and difficult life circumstances. These experiences left a deep impact on my life, causing delays in my path and preventing me from entering the job market until now.',
+                p3: 'Despite everything I have been through, I truly believe that struggle does not define the end of my story, but rather serves as a catalyst for a new beginning. Today, I am striving step by step to overcome these psychological and social hurdles and build a better future with honesty and determination.',
+                supportTitle: 'Would you like to support my new beginning?',
+                supportDesc: 'If you would like to offer help or a donation to assist me with basic needs and support my journey toward recovery and rebuilding, I would be deeply grateful.',
+                donateBtn: '💳 Support via PayPal',
+                thankTitle: 'A Message of Gratitude 🤍',
+                thankDesc: 'Thank you to every kind soul reading my words right now, whether you provided financial support or simply kept me in your prayers. Your presence and hope mean the world to me.',
+                hamdullah: 'Alhamdulillah for everything, and praise be to God always ✨',
+                footerHamdullah: 'Alhamdulillah'
+            },
             ar: {
                 dir: 'rtl',
-                title: 'مركز تحليل وتطوير الأعمال',
-                subtitle: 'نحلل التحديات التشغيلية والتسويقية للشركات الكبرى والناشئة ونقدم استراتيجيات نمو مثبتة.',
-                casesTitle: 'حالات دراسية وتقارير وتحليلات',
-                probTitle: 'المشكلة التشخيصية:',
-                lockTitle: 'فتح تقرير الحل الاستراتيجي الكامل ($49)',
-                paypalText: '💳 دفع عبر PayPal',
-                waText: '💬 تواصل بواتساب',
-                paypalEmailText: 'حساب بايبال: benlafkir5@gmail.com',
-                badgePro: 'محتوى مدفوع (PRO)',
-                ctaTitle: 'هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟',
-                ctaDesc: 'احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.',
-                ctaBtn: 'طلب استشارة مخصصة',
-                case1Title: 'أزمة سلسلة التوريد وارتفاع التكاليف التشغيلية',
-                case1Tag: 'الشركات الكبرى / اللوجستيات',
-                case1Desc: 'دراسة حالة حول كيفية تعامل شركة تصنيع إقليمية مع تضخم أسعار الشحن وتأخر توريد المواد الخام.',
-                case1Prob: 'تراكم الطلبات المتأخرة بنسبة 35%، انخفاض هامش الربح بسبب الشراء المباشر المفاجئ، وغياب التنبؤ التلقائي بالمخزون.',
-                case1Blur: 'هذا النص يحتوي على الحل الاستراتيجي التفصيلي والخطة التنفيذية المكونة من 5 مراحل لإعادة هيكلة خطوط التوريد وخفض التكاليف بنسبة 22%.',
-                case2Title: 'ضعف معدل الاحتفاظ بالعملاء (Churn Rate)',
-                case2Tag: 'البرمجيات والتكنولوجيا',
-                case2Desc: 'تحليل أسباب إلغاء الاشتراكات الشهرية في منصة إدارة مشاريع بعد السنة الأولى من الإطلاق.',
-                case2Prob: 'ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.',
-                case2Blur: 'خطة العمل لإعادة تصميم رحلة العميل وإضافة آليات الذكاء الاصطناعي للمتابعة التي رفعت الاحتفاظ بالعملاء بنسبة 40%.'
+                lang: 'ar',
+                title: 'رحلتي، أملي، وتطلعي للمستقبل',
+                subtitle: 'قصة طفل كبر وسط الضغوط ويبحث عن بدايته الجديدة',
+                p1: 'مرحباً بك في صفحتي الشخصية..',
+                p2: 'أنا إنسان كبرتُ وعشتُ طفولتي وشبابي تحت ضغوط نفسية وظروف لم تكن سهلة أبداً. تلك الظروف تركت أثراً عميقاً في حياتي وجعلتني أتأخر في مساري وفي دخول سوق العمل حتى الآن.',
+                p3: 'رغم كل ما مررت به، أؤمن أن المعاناة لا تحدد نهاية القصة، بل هي دافع لبداية جديدة. أسعى اليوم لتجاوز هذه العقبات النفسية والاجتماعية، وبناء مستقبلي خطوة بخطوة بكل صدق وإرادة.',
+                supportTitle: 'هل ترغب في مساندتي ودعم بدايتي؟',
+                supportDesc: 'إن كنت تود تقديم دعم أو تبرع ليساعدني في تغطية الاحتياجات الأساسية ومواصلة رحلة التعافي والبناء، سأكون ممتناً لك من الأعماق.',
+                donateBtn: '💳 تقديم دعم عبر PayPal',
+                thankTitle: 'رسالة شكر وامتنان 🤍',
+                thankDesc: 'شكراً لكل روح طيبة تقرأ كلماتي الآن، سواء قدمت لي دعماً مادياً أو دعت لي بدعوة صادقة بظهر الغيب. وجودكم وأملكم بي يعني لي الكثير.',
+                hamdullah: 'الحمد لله على كل حال، والحمد لله دائماً وأبداً ✨',
+                footerHamdullah: 'الحمد لله'
             },
             fr: {
                 dir: 'ltr',
-                title: 'Centre d\'Analyse et de Développement des Affaires',
-                subtitle: 'Nous analysons les défis opérationnels et marketing des entreprises et proposons des stratégies de croissance éprouvées.',
-                casesTitle: 'Études de cas et analyses stratégiques',
-                probTitle: 'Problème Diagnostic:',
-                lockTitle: 'Débloquer le rapport stratégique (49$)',
-                paypalText: '💳 Payer via PayPal',
-                waText: '💬 Contact WhatsApp',
-                paypalEmailText: 'Compte PayPal: benlafkir5@gmail.com',
-                badgePro: 'Contenu Payant (PRO)',
-                ctaTitle: 'Besoin d\'une analyse personnalisée pour votre entreprise ?',
-                ctaDesc: 'Obtenez des conseils personnalisés et des rapports stratégiques sur mesure.',
-                ctaBtn: 'Demander une consultation',
-                case1Title: 'Crise de la chaîne d\'approvisionnement et coûts élevés',
-                case1Tag: 'Grandes Entreprises / Logistique',
-                case1Desc: 'Étude de cas sur la gestion de l\'inflation des frais de port et des retards de matières premières.',
-                case1Prob: 'Accumulation de 35% de commandes en retard et baisse des marges bénéficiaires.',
-                case1Blur: 'Ce texte contient la solution stratégique détaillée et le plan d\'exécution en 5 étapes pour restructurer les lignes d\'approvisionnement et réduire les coûts de 22%.',
-                case2Title: 'Faible taux de rétention des clients (Churn Rate)',
-                case2Tag: 'Logiciels & Technologie',
-                case2Desc: 'Analyse des annulations d\'abonnements mensuels sur une plateforme SaaS.',
-                case2Prob: 'Expérience d\'intégration (Onboarding) médiocre et manque de support client immédiat.',
-                case2Blur: 'Le plan d\'action pour redéfinir le parcours client et intégrer le suivi par IA, augmentant la rétention de 40%.'
-            },
-            en: {
-                dir: 'ltr',
-                title: 'Business Analytics & Development Center',
-                subtitle: 'We analyze operational and marketing challenges for enterprises and deliver proven growth strategies.',
-                casesTitle: 'Case Studies & Strategic Reports',
-                probTitle: 'Diagnostic Problem:',
-                lockTitle: 'Unlock Full Strategic Solution Report ($49)',
-                paypalText: '💳 Pay via PayPal',
-                waText: '💬 Chat on WhatsApp',
-                paypalEmailText: 'PayPal Account: benlafkir5@gmail.com',
-                badgePro: 'Paid Content (PRO)',
-                ctaTitle: 'Need a custom analysis for your business?',
-                ctaDesc: 'Get tailored consulting and strategic reports designed to scale your operations.',
-                ctaBtn: 'Request Custom Consultation',
-                case1Title: 'Supply Chain Crisis & Rising Operational Costs',
-                case1Tag: 'Enterprise / Logistics',
-                case1Desc: 'A case study on how a manufacturing firm navigated shipping inflation and raw material delays.',
-                case1Prob: '35% order backlog, shrinking profit margins due to spot purchases, and lack of inventory forecasting.',
-                case1Blur: 'This text contains the detailed strategic solution and a 5-phase execution plan to restructure supply lines and reduce costs by 22%.',
-                case2Title: 'High Customer Churn Rate in SaaS',
-                case2Tag: 'Software & Tech',
-                case2Desc: 'Analyzing reasons behind monthly subscription cancellations after year one.',
-                case2Prob: 'Poor onboarding experience and lack of instant technical support for enterprise clients.',
-                case2Blur: 'The action plan to redesign the customer journey and integrate AI follow-ups that boosted retention by 40%.'
+                lang: 'fr',
+                title: 'Mon Parcours, Mon Espoir et Mon Avenir',
+                subtitle: 'L\'histoire d\'un enfant qui a grandi sous pression psychologique et cherche un nouveau départ',
+                p1: 'Bienvenue sur ma page personnelle..',
+                p2: 'J\'ai grandi en faisant face à de fortes pressions psychologiques et à des circonstances difficiles. Ces expériences ont laissé une empreinte profonde, retardant mon parcours et m\'empêchant d\'entrer sur le marché du travail jusqu\'à présent.',
+                p3: 'Malgré tout ce que j\'ai traversé, je crois profondément que la souffrance ne définit pas la fin de mon histoire, mais sert de catalyseur pour un nouveau départ. Aujourd\'hui, je m\'efforce surmonter ces obstacles et de construire mon avenir avec honnêteté et détermination.',
+                supportTitle: 'Souhaitez-vous soutenir mon nouveau départ ?',
+                supportDesc: 'Si vous souhaitez m\'offrir une aide ou un don pour subvenir à mes besoins essentiels et soutenir ma guérison, je vous en serais profondément reconnaissant.',
+                donateBtn: '💳 Soutenir via PayPal',
+                thankTitle: 'Message de Gratitude 🤍',
+                thankDesc: 'Merci à chaque belle âme qui lit mes mots en ce moment, que vous m\'ayez offert un soutien financier ou une pensée sincère. Votre soutien compte énormément pour moi.',
+                hamdullah: 'Alhamdulillah pour tout, et louange à Dieu toujours ✨',
+                footerHamdullah: 'Alhamdulillah'
             }
         };
 
-        function setLanguage(lang) {
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            if(event && event.target) {
-                event.target.classList.add('active');
-            }
+        function setLanguage(langKey) {
+            const data = translations[langKey];
             
-            const t = translations[lang];
-            document.documentElement.dir = t.dir;
-            document.documentElement.lang = lang;
+            // Update document layout direction & language tag
+            document.documentElement.dir = data.dir;
+            document.documentElement.lang = data.lang;
 
-            document.getElementById('title').innerText = t.title;
-            document.getElementById('subtitle').innerText = t.subtitle;
-            document.getElementById('cases-title').innerText = t.casesTitle;
-            document.getElementById('cta-title').innerText = t.ctaTitle;
-            document.getElementById('cta-desc').innerText = t.ctaDesc;
-            document.getElementById('cta-btn').innerText = t.ctaBtn;
+            // Update active button status
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${langKey}`).classList.add('active');
 
-            document.querySelectorAll('.prob-title').forEach(el => el.innerText = t.probTitle);
-            document.querySelectorAll('.lock-title').forEach(el => el.innerText = t.lockTitle);
-            document.querySelectorAll('.paypal-text').forEach(el => el.innerText = t.paypalText);
-            document.querySelectorAll('.wa-text').forEach(el => el.innerText = t.waText);
-            document.querySelectorAll('.paypal-email-text').forEach(el => el.innerText = t.paypalEmailText);
-            document.querySelectorAll('.badge-pro').forEach(el => el.innerText = t.badgePro);
-
-            document.querySelector('.case1-title').innerText = t.case1Title;
-            document.querySelector('.case1-tag').innerText = t.case1Tag;
-            document.querySelector('.case1-desc').innerText = t.case1Desc;
-            document.querySelector('.case1-prob').innerText = t.case1Prob;
-            document.querySelector('.case1-blur').innerText = t.case1Blur;
-
-            document.querySelector('.case2-title').innerText = t.case2Title;
-            document.querySelector('.case2-tag').innerText = t.case2Tag;
-            document.querySelector('.case2-desc').innerText = t.case2Desc;
-            document.querySelector('.case2-prob').innerText = t.case2Prob;
-            document.querySelector('.case2-blur').innerText = t.case2Blur;
+            // Update content text
+            document.getElementById('page-title').innerText = data.title;
+            document.getElementById('page-subtitle').innerText = data.subtitle;
+            document.getElementById('story-p1').innerText = data.p1;
+            document.getElementById('story-p2').innerText = data.p2;
+            document.getElementById('story-p3').innerText = data.p3;
+            document.getElementById('support-title').innerText = data.supportTitle;
+            document.getElementById('support-desc').innerText = data.supportDesc;
+            document.getElementById('donate-btn').innerText = data.donateBtn;
+            document.getElementById('thank-title').innerText = data.thankTitle;
+            document.getElementById('thank-desc').innerText = data.thankDesc;
+            document.getElementById('hamdullah').innerText = data.hamdullah;
+            document.getElementById('footer-hamdullah').innerText = data.footerHamdullah;
         }
     </script>
 </body>
