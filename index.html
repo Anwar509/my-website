@@ -3,78 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحليل مشاكل الشركات وتطوير الأعمال</title>
+    <title>BizAnalytics - مركز تحليل وتطوير الأعمال</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: all 0.2s ease; }
         body { background-color: #f8fafc; color: #0f172a; line-height: 1.6; }
-        header { background-color: #1e293b; color: #ffffff; padding: 3rem 1rem; text-align: center; }
-        header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-        header p { color: #94a3b8; font-size: 1.1rem; }
+        
+        /* Navbar & Language Switcher */
+        nav { background: #0f172a; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; color: white; border-bottom: 1px solid #1e293b; }
+        .logo { font-weight: bold; font-size: 1.2rem; color: #38bdf8; }
+        .lang-switch { display: flex; gap: 0.5rem; }
+        .lang-btn { background: #1e293b; color: white; border: 1px solid #334155; padding: 0.4rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; font-weight: bold; }
+        .lang-btn.active { background: #2563eb; border-color: #2563eb; }
+
+        header { background-color: #1e293b; color: #ffffff; padding: 3.5rem 1rem; text-align: center; }
+        header h1 { font-size: 2.3rem; margin-bottom: 0.8rem; }
+        header p { color: #94a3b8; font-size: 1.1rem; max-width: 700px; margin: 0 auto; }
+        
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
-        .section-title { font-size: 1.5rem; font-size: 1.5rem; color: #1e293b; border-right: 4px solid #2563eb; padding-right: 0.5rem; margin-bottom: 1.5rem; }
-        .case-study { background: #ffffff; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-        .case-study h3 { color: #2563eb; margin-bottom: 0.5rem; }
-        .tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 1rem; }
-        .problem-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+        .section-title { font-size: 1.6rem; color: #1e293b; border-right: 4px solid #2563eb; padding-right: 0.75rem; margin-bottom: 1.5rem; }
+        [dir="ltr"] .section-title { border-right: none; border-left: 4px solid #2563eb; padding-left: 0.75rem; padding-right: 0; }
+
+        .case-study { background: #ffffff; border-radius: 12px; padding: 1.75rem; margin-bottom: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .case-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .case-study h3 { color: #0f172a; font-size: 1.3rem; }
+        .tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+        
+        .problem-solution { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; }
         @media (max-width: 768px) { .problem-solution { grid-template-columns: 1fr; } }
-        .box { padding: 1rem; border-radius: 6px; }
-        .problem { background-color: #fef2f2; border-right: 3px solid #ef4444; }
-        .solution { background-color: #f0fdf4; border-right: 3px solid #22c55e; }
-        .box h4 { margin-bottom: 0.5rem; }
-        .cta-section { background: #1e293b; color: white; text-align: center; padding: 2rem; border-radius: 8px; margin-top: 3rem; }
-        .cta-button { display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; margin-top: 1rem; font-weight: bold; }
+        
+        .box { padding: 1.25rem; border-radius: 8px; position: relative; }
+        .problem { background-color: #fef2f2; border-right: 4px solid #ef4444; }
+        [dir="ltr"] .problem { border-right: none; border-left: 4px solid #ef4444; }
+        
+        /* Locked Solution Box */
+        .solution-locked { background-color: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .solution-locked .blur-text { filter: blur(4px); opacity: 0.4; user-select: none; margin-bottom: 1rem; pointer-events: none; }
+        .paywall-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
+        .pay-badge { background: #f59e0b; color: white; font-size: 0.75rem; font-weight: bold; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem; }
+        .unlock-btn { background: #16a34a; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.9rem; margin-top: 0.5rem; text-decoration: none; display: inline-block; }
+        .unlock-btn:hover { background: #15803d; }
+
+        .cta-section { background: #0f172a; color: white; text-align: center; padding: 3rem 1.5rem; border-radius: 12px; margin-top: 3rem; }
+        .cta-button { display: inline-block; background: #2563eb; color: white; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; margin-top: 1.25rem; font-weight: bold; }
+        footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+
+    <nav>
+        <div class="logo">BizAnalytics PRO</div>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLanguage('ar')">العربية</button>
+            <button class="lang-btn" onclick="setLanguage('fr')">Français</button>
+            <button class="lang-btn" onclick="setLanguage('en')">English</button>
+        </div>
+    </nav>
+
     <header>
-        <h1>مركز تحليل وتطوير الأعمال</h1>
-        <p>نحلل التحديات التشغيلية والتسويقية للشركات ونقدم حلولاً استراتيجية قابلة للتنفيذ</p>
+        <h1 id="title">مركز تحليل وتطوير الأعمال</h1>
+        <p id="subtitle">نحلل التحديات التشغيلية والتسويقية للشركات الكبرى والناشئة ونقدم استراتيجيات نمو مثبتة.</p>
     </header>
 
     <div class="container">
-        <h2 class="section-title">حالات دراسية وتحليلات سابقة</h2>
+        <h2 class="section-title" id="cases-title">حالات دراسية وتقارير وتحليلات</h2>
 
-        <!-- Case Study 1 -->
+        <!-- Article / Case 1 -->
         <div class="case-study">
-            <h3>ضعف معدل التحويل في المتاجر الإلكترونية</h3>
-            <span class="tag">التجارة الإلكترونية</span>
-            <p>تحليل شامل لمشكلة انخفاض المبيعات رغم وجود زيارات عالية للموقع.</p>
+            <div class="case-header">
+                <h3 class="case1-title">أزمة سلسلة التوريد وارتفاع التكاليف التشغيلية</h3>
+                <span class="tag">الشركات الكبرى / اللوجستيات</span>
+            </div>
+            <p class="case1-desc">دراسة حالة حول كيفية تعامل شركة تصنيع إقليمية مع تضخم أسعار الشحن وتأخر توريد المواد الخام.</p>
             <div class="problem-solution">
                 <div class="box problem">
-                    <h4>المشكلة التشخيصية:</h4>
-                    <p>تعقيد خطوات إتمام الشراء (Checkout) وغياب خيارات الدفع السريعة، مع عدم تحسين سرعة تحميل الصفحة على الهواتف.</p>
+                    <h4 class="prob-title">المشكلة التشخيصية:</h4>
+                    <p class="case1-prob">تراكم الطلبات المتأخرة بنسبة 35%، انخفاض هامش الربح بسبب الشراء المباشر المفاجئ، وغياب التنبؤ التلقائي بالمخزون.</p>
                 </div>
-                <div class="box solution">
-                    <h4>الحل المقترح:</h4>
-                    <p>تبسيط عملية الشراء إلى خطوة واحدة، إضافة خيارات دفع محلية وسريعة، وتحسين ضغط الصور لزيادة سرعة الموقع بنسبة 40%.</p>
+                <div class="solution-locked">
+                    <div class="blur-text">
+                        هذا النص يحتوي على الحل الاستراتيجي التفصيلي والخطة التنفيذية المكونة من 5 مراحل لإعادة هيكلة خطوط التوريد وخفض التكاليف بنسبة 22%.
+                    </div>
+                    <div class="paywall-overlay">
+                        <span class="pay-badge" id="badge-pro">محتوى مدفوع (PRO)</span>
+                        <h4 style="font-size:0.95rem;" id="lock-title">فتح تقرير الحل الاستراتيجي الكامل</h4>
+                        <a href="https://wa.me/" target="_blank" class="unlock-btn" id="unlock-btn">فتح التقرير ($49)</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Case Study 2 -->
+        <!-- Article / Case 2 -->
         <div class="case-study">
-            <h3>ضعف التفاعل الرقمي واجتذاب العملاء</h3>
-            <span class="tag">الشركات الناشئة</span>
-            <p>دراسة حالة حول صعوبة وصول الشركات الناشئة لشريحتها المستهدفة عبر المنصات الرقمية.</p>
+            <div class="case-header">
+                <h3 class="case2-title">ضعف معدل الاحتفاظ بالعملاء (Churn Rate)</h3>
+                <span class="tag">البرمجيات والتكنولوجيا</span>
+            </div>
+            <p class="case2-desc">تحليل أسباب إلغاء الاشتراكات الشهرية في منصة إدارة مشاريع بعد السنة الأولى من الإطلاق.</p>
             <div class="problem-solution">
                 <div class="box problem">
-                    <h4>المشكلة التشخيصية:</h4>
-                    <p>الاعتماد على المحتوى الإعلاني المباشر دون تقديم قيمة للعميل، وغياب استراتيجية التسويق عبر محركات البحث (SEO).</p>
+                    <h4 class="prob-title">المشكلة التشخيصية:</h4>
+                    <p class="case2-prob">ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.</p>
                 </div>
-                <div class="box solution">
-                    <h4>الحل المقترح:</h4>
-                    <p>بناء خطة محتوى قائمة على حل مشاكل الجمهور، مع تحسين المحتوى لمحركات البحث واستهداف الكلمات المفتاحية الذكية.</p>
+                <div class="solution-locked">
+                    <div class="blur-text">
+                        خطة العمل لإعادة تصميم رحلة العميل وإضافة آليات الذكاء الاصطناعي للمتابعة التي رفعت الاحتفاظ بالعملاء بنسبة 40%.
+                    </div>
+                    <div class="paywall-overlay">
+                        <span class="pay-badge" id="badge-pro2">محتوى مدفوع (PRO)</span>
+                        <h4 style="font-size:0.95rem;" id="lock-title2">فتح تقرير الحل الاستراتيجي الكامل</h4>
+                        <a href="https://wa.me/" target="_blank" class="unlock-btn" id="unlock-btn2">فتح التقرير ($49)</a>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Call to Action -->
         <div class="cta-section">
-            <h2>هل تريد تحليلاً خاصاً بشركتك؟</h2>
-            <p>تواصل معنا للحصول على تقرير مفصل حول التحديات التي تواجه مشروعك وكيفية تجاوزها.</p>
-            <a href="mailto:example@email.com" class="cta-button">تواصل معنا الآن</a>
+            <h2 id="cta-title">هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟</h2>
+            <p id="cta-desc">احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.</p>
+            <a href="https://wa.me/" target="_blank" class="cta-button" id="cta-btn">طلب استشارة مخصصة</a>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 BizAnalytics PRO. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                title: 'مركز تحليل وتطوير الأعمال',
+                subtitle: 'نحلل التحديات التشغيلية والتسويقية للشركات الكبرى والناشئة ونقدم استراتيجيات نمو مثبتة.',
+                casesTitle: 'حالات دراسية وتقارير وتحليلات',
+                probTitle: 'المشكلة التشخيصية:',
+                lockTitle: 'فتح تقرير الحل الاستراتيجي الكامل',
+                unlockBtn: 'فتح التقرير ($49)',
+                ctaTitle: 'هل تملك شركة وتريد تحليلاً مخصصاً لمشاكلك؟',
+                ctaDesc: 'احصل على استشارة خاصة وتقارير استراتيجية مصممة خصيصاً لهيكلة عملك وزيادة أرباحك.',
+                ctaBtn: 'طلب استشارة مخصصة',
+                case1Title: 'أزمة سلسلة التوريد وارتفاع التكاليف التشغيلية',
+                case1Desc: 'دراسة حالة حول كيفية تعامل شركة تصنيع إقليمية مع تضخم أسعار الشحن وتأخر توريد المواد الخام.',
+                case1Prob: 'تراكم الطلبات المتأخرة بنسبة 35%، انخفاض هامش الربح بسبب الشراء المباشر المفاجئ، وغياب التنبؤ التلقائي بالمخزون.',
+                case2Title: 'ضعف معدل الاحتفاظ بالعملاء (Churn Rate)',
+                case2Desc: 'تحليل أسباب إلغاء الاشتراكات الشهرية في منصة إدارة مشاريع بعد السنة الأولى من الإطلاق.',
+                case2Prob: 'ضعف تجربة المستخدم عند التسجيل لأول مرة (Onboarding) وغياب الدعم الفني الفوري للشركات.'
+            },
+            fr: {
+                dir: 'ltr',
+                title: 'Centre d\'Analyse et de Développement des Affaires',
+                subtitle: 'Nous analysons les défis opérationnels et marketing des entreprises et proposons des stratégies de croissance éprouvées.',
+                casesTitle: 'Études de cas et analyses stratégiques',
+                probTitle: 'Problème Diagnostic:',
+                lockTitle: 'Débloquer le rapport de solution stratégique',
+                unlockBtn: 'Débloquer le rapport (49$)',
+                ctaTitle: 'Besoin d\'une analyse personnalisée pour votre entreprise ?',
+                ctaDesc: 'Obtenez des conseils personnalisés et des rapports stratégiques sur mesure.',
+                ctaBtn: 'Demander une consultation',
+                case1Title: 'Crise de la chaîne d\'approvisionnement et coûts élevés',
+                case1Desc: 'Étude de cas sur la gestion de l\'inflation des frais de port et des retards de matières premières.',
+                case1Prob: 'Accumulation de 35% de commandes en retard et baisse des marges bénéficiaires.',
+                case2Title: 'Faible taux de rétention des clients (Churn Rate)',
+                case2Desc: 'Analyse des annulations d\'abonnements mensuels sur une plateforme SaaS.',
+                case2Prob: 'Expérience d\'intégration (Onboarding) médiocre et manque de support client immédiat.'
+            },
+            en: {
+                dir: 'ltr',
+                title: 'Business Analytics & Development Center',
+                subtitle: 'We analyze operational and marketing challenges for enterprises and deliver proven growth strategies.',
+                casesTitle: 'Case Studies & Strategic Reports',
+                probTitle: 'Diagnostic Problem:',
+                lockTitle: 'Unlock Full Strategic Solution Report',
+                unlockBtn: 'Unlock Report ($49)',
+                ctaTitle: 'Need a custom analysis for your business?',
+                ctaDesc: 'Get tailored consulting and strategic reports designed to scale your operations.',
+                ctaBtn: 'Request Custom Consultation',
+                case1Title: 'Supply Chain Crisis & Rising Operational Costs',
+                case1Desc: 'A case study on how a manufacturing firm navigated shipping inflation and raw material delays.',
+                case1Prob: '35% order backlog, shrinking profit margins due to spot purchases, and lack of inventory forecasting.',
+                case2Title: 'High Customer Churn Rate in SaaS',
+                case2Desc: 'Analyzing reasons behind monthly subscription cancellations after year one.',
+                case2Prob: 'Poor onboarding experience and lack of instant technical support for enterprise clients.'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const t = translations[lang];
+            document.documentElement.dir = t.dir;
+            document.documentElement.lang = lang;
+
+            document.getElementById('title').innerText = t.title;
+            document.getElementById('subtitle').innerText = t.subtitle;
+            document.getElementById('cases-title').innerText = t.casesTitle;
+            document.getElementById('cta-title').innerText = t.ctaTitle;
+            document.getElementById('cta-desc').innerText = t.ctaDesc;
+            document.getElementById('cta-btn').innerText = t.ctaBtn;
+
+            document.querySelectorAll('.prob-title').forEach(el => el.innerText = t.probTitle);
+            document.querySelectorAll('[id^="lock-title"]').forEach(el => el.innerText = t.lockTitle);
+            document.querySelectorAll('[id^="unlock-btn"]').forEach(el => el.innerText = t.unlockBtn);
+
+            document.querySelector('.case1-title').innerText = t.case1Title;
+            document.querySelector('.case1-desc').innerText = t.case1Desc;
+            document.querySelector('.case1-prob').innerText = t.case1Prob;
+
+            document.querySelector('.case2-title').innerText = t.case2Title;
+            document.querySelector('.case2-desc').innerText = t.case2Desc;
+            document.querySelector('.case2-prob').innerText = t.case2Prob;
+        }
+    </script>
 </body>
-  </html>
-  
+</html>
